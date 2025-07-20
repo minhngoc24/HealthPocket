@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footer_include"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top bar with title and profile image -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/title_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Staff Profile"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_avatar"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/circle_background" />
+            </RelativeLayout>
+
+            <!-- Search bar -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search for patient’s name or ID"
+                android:drawableStart="@drawable/ic_search"
+                android:background="@drawable/search_bar_background"
+                android:padding="10dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Filter Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button android:text="By date" style="@style/FilterChip" />
+                <Button android:text="By age" style="@style/FilterChip" />
+                <Button android:text="By name" style="@style/FilterChip" />
+                <Button android:text="By ID" style="@style/FilterChip" />
+            </LinearLayout>
+
+            <!-- Patients Record title -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patients Record"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 results found"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+            <!-- Patient entry (repeated block) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#F5F8FF"
+                android:padding="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/patient_avatar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_avatar"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/circle_background" />
+
+                    <TextView
+                        android:id="@+id/patient_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Natasha R."
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_toEndOf="@id/patient_avatar"
+                        android:layout_marginStart="12dp"
+                        android:layout_alignParentTop="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Record ID: HS001\nD.O.B: 01/19/1997"
+                        android:textSize="14sp"
+                        android:layout_below="@id/patient_name"
+                        android:layout_toEndOf="@id/patient_avatar"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View record"
+                        android:textSize="14sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:backgroundTint="#D9E9FF" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- Duplicate the above CardView block for each patient -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer navigation -->
+    <include
+        android:id="@+id/footer_include"
+        layout="@layout/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
