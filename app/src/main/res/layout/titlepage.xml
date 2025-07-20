@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background= "@color/blue">
 
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="367dp"
+        android:src="@drawable/logo" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="367dp"
+        android:layout_toEndOf="@+id/logoImage"
+        android:text="@string/app_name"
+        android:textColor="@color/navy"
+        android:fontFamily="@font/bruno_ace"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/appSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our mission is to giving you support"
+        android:textSize="14sp"
+        android:textColor="#2B2B38"
+        android:layout_below="@id/appTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"/>
+
+
+</RelativeLayout>
