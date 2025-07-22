@@ -24,6 +24,18 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
+            <!-- create an account-->
+            <TextView
+                android:id="@+id/createAccountText"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:fontFamily="@font/main"
+                android:gravity="center_vertical"
+                android:onClick="onCreateAccount"
+                android:text="Create an account"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
             <!-- Phone num -->
             <TextView
                 android:layout_width="match_parent"
@@ -63,6 +75,26 @@
                 android:padding="12dp"
                 android:layout_marginTop="8dp"/>
 
+            <!-- Password -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/main"
+                android:text="Confirm Password"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/PasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/white_input"
+                android:hint="Value"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"/>
+
             <!-- Button -->
             <Button
                 android:id="@+id/signInButton"
@@ -71,37 +103,13 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/button"
                 android:text="Sign In"
-                android:textSize="16sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
 
-            <!-- Forgot Password -->
-            <TextView
-                android:id="@+id/forgotPasswordText"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/main"
-                android:gravity="center_vertical"
-                android:onClick="onForgotPassword"
-                android:text="Forgot password?"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="italic" />
 
-            <!-- Create an Account -->
-            <TextView
-                android:id="@+id/createAccountText"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginTop="60dp"
-                android:fontFamily="@font/main"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:onClick="onCreateAccount"
-                android:text="Create an account"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+
+
+
 
         </LinearLayout>
     </LinearLayout>
