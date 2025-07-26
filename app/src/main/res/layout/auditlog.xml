@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer_include"
+
         android:fillViewport="true">
 
         <LinearLayout
@@ -60,7 +60,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginRight="12dp"
-                        android:background="@drawable/circle_shape" />
+                        android:background="@drawable/ic_avatar" />
 
                     <!-- Text -->
                     <TextView
@@ -74,11 +74,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Fixed Footer -->
-    <include
-        android:id="@+id/footer_include"
-        layout="@layout/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
 </RelativeLayout>
