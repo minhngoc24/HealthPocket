@@ -9,7 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer_include"
         android:fillViewport="true">
 
         <LinearLayout
@@ -51,8 +50,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src=""
-                    android:background=""
+                    android:background="@drawable/ic_avatar"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
@@ -176,12 +174,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Footer navigation -->
-    <include
-        android:id="@+id/footer_include"
-        layout="@layout/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+
 
 </RelativeLayout>

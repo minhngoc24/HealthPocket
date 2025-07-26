@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer_include"
         android:fillViewport="true">
 
         <LinearLayout
@@ -40,7 +39,7 @@
                     android:src="@drawable/ic_avatar"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/circle_background" />
+                    android:background="@drawable/ic_avatar" />
             </RelativeLayout>
 
             <!-- Search bar -->
@@ -48,8 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Search for patient’s name or ID"
-                android:drawableStart="@drawable/ic_search"
-                android:background="@drawable/search_bar_background"
                 android:padding="10dp"
                 android:layout_marginBottom="16dp" />
 
@@ -61,10 +58,10 @@
                 android:gravity="center"
                 android:layout_marginBottom="16dp">
 
-                <Button android:text="By date" style="@style/FilterChip" />
+                <!-- Filter Buttons <Button android:text="By date" style="@style/FilterChip" />
                 <Button android:text="By age" style="@style/FilterChip" />
                 <Button android:text="By name" style="@style/FilterChip" />
-                <Button android:text="By ID" style="@style/FilterChip" />
+                <Button android:text="By ID" style="@style/FilterChip" /> -->
             </LinearLayout>
 
             <!-- Patients Record title -->
@@ -108,7 +105,7 @@
                         android:src="@drawable/ic_avatar"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/circle_background" />
+                        android:background="@drawable/ic_avatar" />
 
                     <TextView
                         android:id="@+id/patient_name"
@@ -147,10 +144,5 @@
     </ScrollView>
 
     <!-- Footer navigation -->
-    <include
-        android:id="@+id/footer_include"
-        layout="@layout/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>
