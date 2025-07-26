@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HEALTH POCKET</string>
+    <string name="title_activity_dash_board">Dashboard</string>
 </resources>
