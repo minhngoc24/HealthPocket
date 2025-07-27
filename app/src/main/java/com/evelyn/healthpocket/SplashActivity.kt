@@ -14,8 +14,12 @@ class SplashActivity : AppCompatActivity() {
         val sharePref = getSharedPreferences("Username", MODE_PRIVATE)
         val isLogin = sharePref.getBoolean("IsLogin", false) // retrieve login status, default false if not found
 
-
-        startActivity(Intent(this, DashBoardActivity::class.java))
-
+        if(isLogin){
+            startActivity(Intent(this, DashBoardActivity::class.java))
+        }
+        else{
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+        finish()
     }
 }
