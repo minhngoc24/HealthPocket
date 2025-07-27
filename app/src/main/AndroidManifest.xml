@@ -25,6 +25,10 @@
             android:theme="@style/Theme.HealthPocket"
             tools:ignore="Instantiatable" />
 
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
