@@ -24,8 +24,7 @@
             android:id="@+id/btnClose"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:src="@drawable/ic_close"
-            android:tint="@android:color/white" />
+            android:src="@drawable/ic_close"/>
 
         <View
             android:layout_width="0dp"
@@ -36,8 +35,7 @@
             android:id="@+id/btnFlash"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_flash"
-            android:tint="@android:color/white" />
+            android:src="@drawable/ic_flash"/>
     </LinearLayout>
 
     <!-- Bottom bar -->
@@ -62,8 +60,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_gallery"
-                android:tint="@android:color/white" />
+                android:src="@drawable/ic_gallery"/>
 
             <TextView
                 android:id="@+id/textGallery"
@@ -114,8 +111,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_multiple"
-                android:tint="@android:color/white" />
+                android:src="@drawable/ic_multiple"/>
 
             <TextView
                 android:id="@+id/textMultiple"
