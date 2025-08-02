@@ -26,6 +26,7 @@
                 android:paddingBottom="16dp">
 
                 <ImageView
+                    android:id="@+id/back_button"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_back"
@@ -117,6 +118,7 @@
 
             <!-- Buttons -->
             <Button
+                android:id="@+id/download_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Download My Records"
@@ -125,6 +127,7 @@
                 android:layout_marginTop="8dp" />
 
             <Button
+                android:id="@+id/share_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Share with Doctor"
@@ -133,6 +136,7 @@
                 android:layout_marginTop="8dp" />
 
             <Button
+                android:id="@+id/request_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Request Correction"
