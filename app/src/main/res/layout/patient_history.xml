@@ -26,6 +26,7 @@
                 android:paddingBottom="16dp">
 
                 <ImageView
+                    android:id="@+id/back_button"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_back"
@@ -127,6 +128,7 @@
 
             <!-- Download Button -->
             <Button
+                android:id="@+id/download_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Download Profile"
