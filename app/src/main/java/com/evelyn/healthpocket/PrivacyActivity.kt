@@ -1,0 +1,12 @@
+package com.evelyn.healthpocket
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+class PrivacyActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.edit_profile)
+    }
+}
+

@@ -12,8 +12,6 @@
         android:theme="@style/Theme.HealthPocket"
         tools:targetApi="31">
 
-
-
         <activity android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.HealthPocket" />
@@ -31,6 +29,8 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
 
         <activity android:name=".SplashActivity"
             android:exported="true">
