@@ -4,3 +4,11 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
 }
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        // 🔑 Thêm repo Microsoft DisplayMask
+        maven("https://pkgs.dev.azure.com/microsoft/DisplayMask/_packaging/display-mask/maven/v1")
+    }
+}
