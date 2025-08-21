@@ -11,11 +11,14 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        // 🔑 Đúng cú pháp Kotlin DSL
+        maven("https://pkgs.dev.azure.com/microsoft/DisplayMask/_packaging/display-mask/maven/v1")
     }
 }
 
