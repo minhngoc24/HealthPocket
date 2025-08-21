@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -31,7 +31,6 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 
-
         <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -39,6 +38,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.microsoft.identity.client.BrowserTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="msauth"
+                    android:host="com.evelyn.healthpocket"
+                    android:path="/03CatXJhFzCUZ3vjv9CHCsXx7jM%3D" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 </manifest>
