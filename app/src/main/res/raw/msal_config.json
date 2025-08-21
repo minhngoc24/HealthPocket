@@ -1,0 +1,14 @@
+{
+  "client_id" : "456f1ffc-d47f-4d69-90d2-a38553cd613c",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "msauth://com.evelyn.healthpokcet/03CatXJhFzCUZ3vjv9CHCsXx7jM%3D",
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "common"
+      }
+    }
+  ]
+}
