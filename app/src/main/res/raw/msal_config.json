@@ -1,7 +1,7 @@
 {
-  "client_id" : "456f1ffc-d47f-4d69-90d2-a38553cd613c",
+  "client_id" : "a5574113-6d9d-47c0-9156-7bf643ed0e53",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth://com.evelyn.healthpokcet/03CatXJhFzCUZ3vjv9CHCsXx7jM%3D",
+  "redirect_uri" : "msauth://com.evelyn.healthpocket/03CatXJhFzCUZ3vjv9CHCsXx7jM%3D",
   "authorities" : [
     {
       "type": "AAD",
