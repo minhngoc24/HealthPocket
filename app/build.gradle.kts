@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.evelyn.healthpocket"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.evelyn.healthpocket"
@@ -40,10 +40,6 @@ android {
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -63,7 +59,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.microsoft.identity.msal)
+    implementation(libs.microsoft.identity.msal) {
+        exclude(group = "com.microsoft.device.display", module = "display-mask")
+    }
     implementation(libs.androidx.browser)
 }
 

@@ -19,7 +19,7 @@ class SelectRoleBinding : AppCompatActivity() {
         setContentView(binding.root)
 
         // dữ liệu cho Spinner
-        val roles = listOf("Select a role", "Patient", "Doctor", "Hospital")
+        val roles = listOf("Select a role", "Patient", "Doctor")
 
         val adapter = ArrayAdapter(
             this,
@@ -47,12 +47,12 @@ class SelectRoleBinding : AppCompatActivity() {
                     "Doctor" -> startActivity(
                         Intent(this@SelectRoleBinding, DoctorPatientProfileActivity::class.java)
                     )
-                    "Hospital" -> startActivity(
-                        Intent(this@SelectRoleBinding, HospitalLoginActivity::class.java)
-                    )
+
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
 }
+
+

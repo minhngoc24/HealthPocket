@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google {
@@ -16,7 +18,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://pkgs.dev.azure.com/SurfaceDuo/maven/_packaging/surface-duo/maven/v1")
+
 
     }
 }
