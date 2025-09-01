@@ -16,9 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://pkgs.dev.azure.com/SurfaceDuo/maven/_packaging/surface-duo/maven/v1")
 
-        maven { url = uri("https://maven.google.com") }
-        maven { url = uri("https://pkgs.dev.azure.com/SurfaceDuo/maven/_packaging/surface-duo/maven/v1") }
     }
 }
 
