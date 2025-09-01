@@ -55,6 +55,7 @@
                     android:scheme="msauth"
                     android:host="com.evelyn.healthpocket"
                     android:path="/03CatXJhFzCUZ3vjv9CHCsXx7jM%3D" />
+
             </intent-filter>
         </activity>
 
