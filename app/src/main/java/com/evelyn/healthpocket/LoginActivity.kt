@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,6 +36,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onCreateAccount(view: View) {
-        Toast.makeText(this, "Create Account Clicked", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, CreateAccountActivity::class.java))
     }
 }
