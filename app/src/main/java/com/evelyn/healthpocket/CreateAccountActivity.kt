@@ -34,7 +34,7 @@ class CreateAccountActivity : AppCompatActivity() {
         }
     }
 
-    /** Xử lý tạo account */
+    /** Meo meo */
     private fun submitCreateAccount() {
         val phone = binding.phoneEditText.text.toString().trim()
         val password = binding.PasswordEditText.text.toString().trim()
