@@ -12,6 +12,8 @@ appcompat = "1.7.1"
 cardview = "1.0.0"
 msal = "5.2.0"
 browser = "1.9.0"
+retrofit = "2.9.0"
+okhttp = "4.10.0"
 
 [libraries]
 androidx-core-ktx             = { group = "androidx.core",              name = "core-ktx",               version.ref = "coreKtx" }
@@ -32,6 +34,9 @@ androidx-appcompat            = { group = "androidx.appcompat",         name = "
 androidx-cardview             = { group = "androidx.cardview",          name = "cardview",               version.ref = "cardview" }
 microsoft-identity-msal       = { group = "com.microsoft.identity.client", name = "msal",    version.ref = "msal" }
 androidx-browser              = { group = "androidx.browser",               name = "browser", version.ref = "browser" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
 
 [plugins]
 android-application = { id = "com.android.application",           version.ref = "agp" }

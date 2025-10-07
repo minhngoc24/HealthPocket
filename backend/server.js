@@ -1,16 +1,35 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import dotenv from "dotenv";
-dotenv.config();
 
 const app = express();
-app.use(helmet());
 app.use(cors());
-app.use(express.json({ limit: "5mb" }));
+app.use(helmet());
+app.use(express.json());
 
-// test route
+// Test route
 app.get("/health", (req, res) => res.json({ ok: true }));
 
+// Mock OTP
+let otpStore = {};
+
+app.post("/api/request-otp", (req, res) => {
+  const { email } = req.body;
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  otpStore[email] = otp;
+  console.log(`OTP for ${email}: ${otp}`);
+  res.json({ ok: true, message: "OTP sent" });
+});
+
+app.post("/api/verify-otp", (req, res) => {
+  const { email, otp } = req.body;
+  if (otpStore[email] === otp) {
+    res.json({ ok: true, token: "mock_token_123" });
+  } else {
+    res.status(400).json({ ok: false, message: "Invalid OTP" });
+  }
+});
+
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`API running`));
+app.listen(PORT, () => console.log(`✅ API running on port ${PORT}`));
+
