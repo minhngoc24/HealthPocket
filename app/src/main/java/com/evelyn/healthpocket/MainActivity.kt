@@ -22,11 +22,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // ✅ Gọi API khi app chạy
-        val api = ApiClient.instance.create(ApiService::class.java)
+        // ✅ Gọi API checkHealth khi app chạy
+        val api = ApiClient.instance
         api.checkHealth().enqueue(object : Callback<Map<String, Boolean>> {
-            override fun onResponse(call: Call<Map<String, Boolean>>, response: Response<Map<String, Boolean>>) {
-                Log.d("API", "Response: ${response.body()}")
+            override fun onResponse(
+                call: Call<Map<String, Boolean>>,
+                response: Response<Map<String, Boolean>>
+            ) {
+                Log.d("API", "Response code: ${response.code()} | body: ${response.body()}")
             }
 
             override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
