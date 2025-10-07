@@ -42,7 +42,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         when {
             phone.isEmpty() -> {
-                binding.phoneEditText.error = "Please enter phone number"
+                binding.phoneEditText.error = "Please entry phone number"
                 binding.phoneEditText.requestFocus()
                 return
             }
