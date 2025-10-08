@@ -67,7 +67,3 @@ jobs:
           app-name: 'healthpocket-api'
           slot-name: 'Production'
           package: ./backend
-
-          
-
-
