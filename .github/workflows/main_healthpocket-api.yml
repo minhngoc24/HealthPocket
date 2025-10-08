@@ -14,41 +14,38 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
 
-      - name: Install dependencies and build (backend)
-        working-directory: backend
+      - name: Install dependencies and build
+        working-directory: ./backend
         run: |
           npm install
           npm run build --if-present
+          npm run test --if-present
 
-      - name: Upload build artifact
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: backend
+          path: ./backend
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
 
     steps:
-      - name: Download build artifact
+      - name: Download artifact from build
         uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: backend
-
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          path: ./backend
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'healthpocket-api'
-          package: backend
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: ./backend
