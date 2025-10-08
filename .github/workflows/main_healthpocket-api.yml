@@ -13,10 +13,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read-write #This is required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
@@ -51,9 +54,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3C736E76A3A2412D95B2003FE53D5DEB }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FA482E2C6593466FB18111B7A7595FDE }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_879EC135336F43BE9F5DCF2FAAEDCAB2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -61,5 +62,6 @@ jobs:
         with:
           app-name: 'healthpocket-api'
           slot-name: 'Production'
-          package: .
+          package: ./backend
+
           
