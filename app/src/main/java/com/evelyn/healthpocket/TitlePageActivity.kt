@@ -16,7 +16,7 @@ class TitlePageActivity : AppCompatActivity() {
         setContentView(R.layout.titlepage)
 
         // ✅ Gọi API checkHealth từ Azure để test
-        val api = ApiClient.instance
+        val api = ApiClient.instance.create(ApiService::class.java)
         Log.d("API", "Calling Azure health check from TitlePageActivity...")
 
         api.checkHealth().enqueue(object : Callback<Map<String, Boolean>> {
