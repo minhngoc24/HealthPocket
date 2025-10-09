@@ -48,4 +48,5 @@ jobs:
         with:
           app-name: 'healthpocket-api'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: ./backend
+          package: .
+
