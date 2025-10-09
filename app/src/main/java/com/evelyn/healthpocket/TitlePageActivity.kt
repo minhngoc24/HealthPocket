@@ -32,7 +32,7 @@ class TitlePageActivity : AppCompatActivity() {
             }
         })
 
-        // Splash delay như cũ
+
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
