@@ -22,18 +22,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // ✅ Gọi API checkHealth khi app chạy
-        val api = ApiClient.instance
-        api.checkHealth().enqueue(object : Callback<Map<String, Boolean>> {
+
+        val api = ApiClient.instance.create(ApiService::class.java)
+
+        api.checkHealth().enqueue(object : retrofit2.Callback<Map<String, Boolean>> {
             override fun onResponse(
-                call: Call<Map<String, Boolean>>,
-                response: Response<Map<String, Boolean>>
+                call: retrofit2.Call<Map<String, Boolean>>,
+                response: retrofit2.Response<Map<String, Boolean>>
             ) {
-                Log.d("API", "Response code: ${response.code()} | body: ${response.body()}")
+                android.util.Log.d("API", "Response code: ${response.code()} | body: ${response.body()}")
             }
 
-            override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
-                Log.e("API", "Error: ${t.message}")
+            override fun onFailure(call: retrofit2.Call<Map<String, Boolean>>, t: Throwable) {
+                android.util.Log.e("API", "Error: ${t.message}")
             }
         })
 
