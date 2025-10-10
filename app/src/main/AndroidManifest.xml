@@ -47,6 +47,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
+            android:name=".OTPConfirmation"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
             android:name="com.microsoft.identity.client.BrowserTabActivity"
             android:exported="true">
             <intent-filter>
