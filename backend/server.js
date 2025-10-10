@@ -10,7 +10,7 @@ app.use(helmet());
 app.use(express.json());
 
 // Test route
-app.get("/health", (req, res) => res.json({ ok: true }));
+app.get("/api/health", (req, res) => res.json({ ok: true }));
 
 // Mock OTP
 let otpStore = {};
