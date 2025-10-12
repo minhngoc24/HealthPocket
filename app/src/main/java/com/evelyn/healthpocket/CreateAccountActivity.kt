@@ -62,7 +62,7 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
 
-        // Call backend API (request OTP)
+
         val api = ApiClient.instance.create(ApiService::class.java)
         val body = mapOf("email" to phone) // or "phone" if your backend expects that
 
