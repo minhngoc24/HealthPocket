@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
+//import { sendOtp } from "./src/services/otpService.js";
+import { sendEmailOtp } from "./src/services/otpService.js";
 dotenv.config();
 
 const app = express();
@@ -9,18 +11,31 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
+
 // Test route
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 
 // Mock OTP
 let otpStore = {};
 
-app.post("/api/request-otp", (req, res) => {
+//app.post("/api/request-otp", (req, res) => {
+//  const { email } = req.body;
+//  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//  otpStore[email] = otp;
+//  console.log(`OTP for ${email}: ${otp}`);
+//  res.json({ ok: true, message: "OTP sent" });
+//});
+
+app.post("/api/request-otp", async (req, res) => {
   const { email } = req.body;
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
   otpStore[email] = otp;
-  console.log(`OTP for ${email}: ${otp}`);
-  res.json({ ok: true, message: "OTP sent" });
+  console.log(`Generated OTP for ${email}: ${otp}`);
+
+  await sendEmailOtp(email, otp);
+
+  res.json({ ok: true, message: "OTP sent to your email" });
 });
 
 app.post("/api/verify-otp", (req, res) => {
@@ -32,6 +47,26 @@ app.post("/api/verify-otp", (req, res) => {
   }
 });
 
+//app.post("/send-otp", async (req, res) => {
+//  const { phoneNumber, otpCode } = req.body;
+//  await sendOtp(phoneNumber, otpCode);
+//  res.json({ success: true });
+//});
+//
+
+app.post("/api/request-otp", async (req, res) => {
+  const { email } = req.body;
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+  otpStore[email] = otp;
+  console.log(`Generated OTP for ${email}: ${otp}`);
+
+  await sendEmailOtp(email, otp);
+
+  res.json({ ok: true, message: "OTP sent to your email" });
+});
+
+
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`✅ API running on port ${PORT}`));
+app.listen(PORT, () => console.log(`API running on port ${PORT}`));
 
