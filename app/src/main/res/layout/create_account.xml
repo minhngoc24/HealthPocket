@@ -36,22 +36,22 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
-            <!-- Phone num -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/main"
-                android:text="Phone number"
+                android:text="Email address"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
 
             <EditText
-                android:id="@+id/phoneEditText"
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/white_input"
-                android:hint="Value"
-                android:inputType="phone"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
                 android:padding="12dp"
                 android:layout_marginTop="8dp"/>
 
