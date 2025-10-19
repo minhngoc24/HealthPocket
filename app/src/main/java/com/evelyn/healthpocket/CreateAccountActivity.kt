@@ -7,10 +7,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.evelyn.healthpocket.databinding.CreateAccountBinding
-import com.evelyn.healthpocket.ApiClient
-import com.evelyn.healthpocket.ApiService
-import retrofit2.*
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -21,15 +20,15 @@ class CreateAccountActivity : AppCompatActivity() {
         binding = CreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        // Đổi text nút để người dùng hiểu
         binding.signInButton.text = "Create Account"
 
+        // Gửi OTP khi nhấn nút
         binding.signInButton.setOnClickListener {
             hideKeyboard()
             submitCreateAccount()
         }
     }
-
 
     private fun hideKeyboard() {
         currentFocus?.let { v ->
@@ -38,16 +37,16 @@ class CreateAccountActivity : AppCompatActivity() {
         }
     }
 
-    /** Meo meo */
+    /** Gửi request OTP tạo tài khoản */
     private fun submitCreateAccount() {
-        val phone = binding.phoneEditText.text.toString().trim()
+        val email = binding.emailEditText.text.toString().trim()
         val password = binding.PasswordEditText.text.toString().trim()
         val confirmPassword = binding.PasswordConfirmEditText.text.toString().trim()
 
         when {
-            phone.isEmpty() -> {
-                binding.phoneEditText.error = "Please enter phone number"
-                binding.phoneEditText.requestFocus()
+            email.isEmpty() -> {
+                binding.emailEditText.error = "Please enter your email"
+                binding.emailEditText.requestFocus()
                 return
             }
             password.isEmpty() -> {
@@ -62,26 +61,27 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
 
-
         val api = ApiClient.instance.create(ApiService::class.java)
-        val body = mapOf("email" to phone) // or "phone" if your backend expects that
+        val body = mapOf("email" to email)
 
-        api.requestOtp(body).enqueue(object : retrofit2.Callback<Map<String, Any>> {
+        api.requestOtp(body).enqueue(object : Callback<Map<String, Any>> {
             override fun onResponse(
-                call: retrofit2.Call<Map<String, Any>>,
-                response: retrofit2.Response<Map<String, Any>>
+                call: Call<Map<String, Any>>,
+                response: Response<Map<String, Any>>
             ) {
                 if (response.isSuccessful) {
                     Toast.makeText(
                         this@CreateAccountActivity,
-                        "OTP sent! Check your email or phone.",
+                        "OTP sent! Check your email to verify your account.",
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    // Move to verify OTP screen
+                    // 👉 Chuyển sang màn OTPConfirmation
                     val intent = Intent(this@CreateAccountActivity, OTPConfirmation::class.java)
-                    intent.putExtra("email", phone)
+                    intent.putExtra("email", email)
+                    intent.putExtra("password", password)
                     startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(
                         this@CreateAccountActivity,
@@ -91,7 +91,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: retrofit2.Call<Map<String, Any>>, t: Throwable) {
+            override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {
                 Toast.makeText(
                     this@CreateAccountActivity,
                     "Network error: ${t.message}",
@@ -101,13 +101,9 @@ class CreateAccountActivity : AppCompatActivity() {
         })
     }
 
-
-    /** gắn với TextView android:onClick="onCreateAccount" trong XML */
+    /** TextView "Create an account" → quay lại LoginActivity */
     fun onCreateAccount(@Suppress("UNUSED_PARAMETER") view: View) {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 }
-
-
-
