@@ -40,14 +40,14 @@ class CreateAccountActivity : AppCompatActivity() {
 
     /** Meo meo */
     private fun submitCreateAccount() {
-        val phone = binding.phoneEditText.text.toString().trim()
+        val phone = binding.emailEditText.text.toString().trim()
         val password = binding.PasswordEditText.text.toString().trim()
         val confirmPassword = binding.PasswordConfirmEditText.text.toString().trim()
 
         when {
             phone.isEmpty() -> {
-                binding.phoneEditText.error = "Please enter phone number"
-                binding.phoneEditText.requestFocus()
+                binding.emailEditText.error = "Please enter email address"
+                binding.emailEditText.requestFocus()
                 return
             }
             password.isEmpty() -> {
