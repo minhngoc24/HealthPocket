@@ -1,5 +1,9 @@
 package com.evelyn.healthpocket
 
+<<<<<<< HEAD
+=======
+import android.content.Intent
+>>>>>>> eb0dbd8d11a40cd9ff4fccc1721f822358895122
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -27,6 +31,10 @@ class OTPConfirmation : AppCompatActivity() {
         // ✅ Nhận email từ LoginActivity
         userEmail = intent.getStringExtra("email") ?: ""
 
+<<<<<<< HEAD
+=======
+        // Liên kết view
+>>>>>>> eb0dbd8d11a40cd9ff4fccc1721f822358895122
         otp1 = findViewById(R.id.otp1)
         otp2 = findViewById(R.id.otp2)
         otp3 = findViewById(R.id.otp3)
@@ -71,10 +79,23 @@ class OTPConfirmation : AppCompatActivity() {
         api.verifyOtp(body).enqueue(object : Callback<Map<String, Any>> {
             override fun onResponse(call: Call<Map<String, Any>>, response: Response<Map<String, Any>>) {
                 if (response.isSuccessful) {
+<<<<<<< HEAD
                     Toast.makeText(this@OTPConfirmation, "✅ OTP verified successfully!", Toast.LENGTH_SHORT).show()
                     // TODO: startActivity(Intent(this@OTPConfirmation, MainActivity::class.java))
                 } else {
                     Toast.makeText(this@OTPConfirmation, "❌ Invalid OTP", Toast.LENGTH_SHORT).show()
+=======
+                    Toast.makeText(this@OTPConfirmation, "OTP verified successfully!", Toast.LENGTH_SHORT).show()
+
+                    // 👉 Chuyển sang màn SelectRoleActivity (nếu dùng view binding tên SelectRoleBinding)
+                    val intent = Intent(this@OTPConfirmation, SelectRoleBinding::class.java)
+                    intent.putExtra("email", userEmail)
+                    startActivity(intent)
+                    finish()
+
+                } else {
+                    Toast.makeText(this@OTPConfirmation, "Invalid OTP", Toast.LENGTH_SHORT).show()
+>>>>>>> eb0dbd8d11a40cd9ff4fccc1721f822358895122
                 }
             }
 
