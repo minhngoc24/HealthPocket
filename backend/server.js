@@ -26,17 +26,17 @@ let otpStore = {};
 //  res.json({ ok: true, message: "OTP sent" });
 //});
 
-app.post("/api/request-otp", async (req, res) => {
-  const { email } = req.body;
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-
-  otpStore[email] = otp;
-  console.log(`Generated OTP for ${email}: ${otp}`);
-
-  await sendEmailOtp(email, otp);
-
-  res.json({ ok: true, message: "OTP sent to your email" });
-});
+//app.post("/api/request-otp", async (req, res) => {
+//  const { email } = req.body;
+//  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//
+//  otpStore[email] = otp;
+//  console.log(`Generated OTP for ${email}: ${otp}`);
+//
+//  await sendEmailOtp(email, otp);
+//
+//  res.json({ ok: true, message: "OTP sent to your email" });
+//});
 
 app.post("/api/verify-otp", (req, res) => {
   const { email, otp } = req.body;
@@ -54,17 +54,35 @@ app.post("/api/verify-otp", (req, res) => {
 //});
 //
 
+//app.post("/api/request-otp", async (req, res) => {
+//  const { email } = req.body;
+//  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//
+//  otpStore[email] = otp;
+//  console.log(`Generated OTP for ${email}: ${otp}`);
+//
+//  await sendEmailOtp(email, otp);
+//
+//  res.json({ ok: true, message: "OTP sent to your email" });
+//});
+
 app.post("/api/request-otp", async (req, res) => {
-  const { email } = req.body;
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  try {
+    const { email } = req.body;
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-  otpStore[email] = otp;
-  console.log(`Generated OTP for ${email}: ${otp}`);
+    otpStore[email] = otp;
+    console.log(`Generated OTP for ${email}: ${otp}`);
 
-  await sendEmailOtp(email, otp);
+    await sendEmailOtp(email, otp);
 
-  res.json({ ok: true, message: "OTP sent to your email" });
+    res.status(200).json({ ok: true, message: "OTP sent to your email" });
+  } catch (error) {
+    console.error("Error sending OTP:", error);
+    res.status(500).json({ ok: false, message: "Failed to send OTP" });
+  }
 });
+
 
 
 const PORT = process.env.PORT || 8080;
